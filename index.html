@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="buttons">
+        <div class="buttons-container">
+          <div class="buttons-left">
+            <button id="html">html</button>
+            <button id="css">css</button>
+            <button id="js">js</button>        
+          </div>
+          <div class="buttons-right">
+            <button onclick="openModal(document.getElementById('modal_1'));">Open the Modal!</button>
+          </div>
+        </div>
+      </div>
+      <div id="editor-container">
+        <div id="editor"></div>
+      </div>
+      <div id="preview">
+        <iframe></iframe>
+      </div>
+    </div>
+    <div id="modal_1" class="modal" aria-hidden="true" aria-modal="true" tabindex="-1">
+      <div class="modal_box">
+        <input type="text" id="search" />
+          <div id="search-results">
+            <template id="result-template">
+              <a href="#"><p></p></a>
+            </template>
+          </div>
+        </input>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/anthemaker/fusilli.js/fusilli.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.12.3/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.12.3/src-noconflict/ext-emmet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emmet-core@1.0.0/emmet.js"></script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
