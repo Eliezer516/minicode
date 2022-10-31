@@ -4,19 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Minicode 2</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
     <div class="container">
       <div class="buttons">
         <div class="buttons-container">
           <div class="buttons-left">
-            <button id="html">html</button>
-            <button id="css">css</button>
-            <button id="js">js</button>        
+            <button id="html"><i class='bx bxl-html5'></i><span>html</span></button>
+            <button id="css"><i class='bx bxl-css3'></i><span>css</span></button>
+            <button id="js"><i class='bx bxl-javascript'></i><span>js</span></button>        
           </div>
           <div class="buttons-right">
-            <button onclick="openModal(document.getElementById('modal_1'));">Open the Modal!</button>
+            <button id="toggle-darkMode"></button>
           </div>
         </div>
       </div>
@@ -25,17 +26,6 @@
       </div>
       <div id="preview">
         <iframe></iframe>
-      </div>
-    </div>
-    <div id="modal_1" class="modal" aria-hidden="true" aria-modal="true" tabindex="-1">
-      <div class="modal_box">
-        <input type="text" id="search" />
-          <div id="search-results">
-            <template id="result-template">
-              <a href="#"><p></p></a>
-            </template>
-          </div>
-        </input>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/anthemaker/fusilli.js/fusilli.min.js"></script>

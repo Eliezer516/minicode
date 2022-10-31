@@ -1,17 +1,18 @@
 import './style.css'
 
-const fragment = document.createDocumentFragment();
-const template = document.querySelector("#result-template").content;
-let searchResults = []
-
 Split(['#editor-container', '#preview'], {
   direction: 'vertical'
 })
 
 var editor = ace.edit("editor")
-// editor.setTheme("ace/theme/dracula")
 var Emmet = ace.require("ace/ext/emmet")
-editor.setOption("enableEmmet", true)
+editor.setOption({
+  'enableEmmet': true,
+})
+editor.setOption('cursorStyle', 'smooth')
+editor.setShowPrintMargin(false)
+editor.setTheme("ace/theme/chrome")
+
 
 const htmlSession = ace.createEditSession('')
 const cssSession = ace.createEditSession('')
@@ -43,29 +44,24 @@ const updatePreview = () => {
 editor.on('change', function() {
   setTimeout(() => {
     updatePreview()
-  }, 1500)
+  }, 900)
 })
 
-document.querySelector('#search').addEventListener('keyup', (e) => {
-  async function getCdn () {
-    const response = await fetch(`https://api.cdnjs.com/libraries?search=${e.target.value}&fields=filename,description,version`)
-    const data = await response.json()
-    searchResults = data.results
-    
-    
-    searchResults.forEach(result => {
-      template.querySelector('p').textContent = result.name
-      const clone = template.cloneNode(true)
-      
-      fragment.appendChild(clone)
-    })
-    
-    document.querySelector('#search-results').appendChild(fragment)
+document.querySelector('#toggle-darkMode').onclick = () => {
+  document.querySelector('#toggle-darkMode').classList.toggle('active')
+  if(!document.querySelector('#toggle-darkMode').classList.contains('active')) {
+    editor.setTheme("ace/theme/chrome")
+  } else {
+    editor.setTheme("ace/theme/dracula")
   }
-  if (e.target.value.length > 2) {
-    setTimeout(() => {
-      document.querySelector('#search-results').innerHTML = ''
-      getCdn()
-    }, 1500)
-  }
+}
+
+
+function actibeLblButton () {
+  document.querySelectorAll('.buttons-left button').forEach((item) => item.classList.remove('active'))
+  this.classList.add('active')
+}
+
+document.querySelectorAll('.buttons-left button').forEach((button) => {
+  button.addEventListener('click', actibeLblButton)
 })
