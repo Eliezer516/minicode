@@ -6,14 +6,15 @@ import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/snippets/html";
 import "ace-builds/src-noconflict/worker-html";
 
-import "ace-builds/src-noconflict/theme-monokai";
+import '../themes/themes'
 import "ace-builds/src-noconflict/ext-language_tools";
+import "ace-builds/src-noconflict/ext-emmet";
 
 const HtmlEditor = () => {
   
   const { updateHtmlCode } = useEditorStore()
-  const editorHeight = useEditorStore(state => state.editorHeight)
   const fontSizeValue = useEditorStore(state => state.fontSize)
+  const editorThemeValue = useEditorStore(state => state.editorTheme)
 
   const handleChange = (code) => {
     updateHtmlCode(code)
@@ -23,7 +24,7 @@ const HtmlEditor = () => {
     <AceEditor
       placeholder='Html code here...'
       mode='html'
-      theme="monokai"
+      theme={editorThemeValue}
       className="editor"
       onChange={handleChange}
       width='100%'
@@ -33,11 +34,12 @@ const HtmlEditor = () => {
         enableBasicAutocompletion: true,
         enableLiveAutocompletion: true,
         enableSnippets: true,
-        fontSize: 18,
+        fontSize: 16,
         showPrintMargin: false,
         // wrapEnabled: true,
         tabSize: 2,
-        useWorker: false
+        useWorker: false,
+        enableEmmet: true
       }}
     />
   )

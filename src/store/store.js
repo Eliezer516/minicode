@@ -12,6 +12,8 @@ const useEditorStore = create((set) => ({
   closeModal: () => set(state => ({ ...state, modalOpen: state.modalOpen = false })),
   fontSize: 16,
   updateFontSize: (size) => set(state => ({ ...state, fontSize: state.fontSize = size})),
+  editorTheme: 'monokai',
+  updateEditorTheme: (theme) => set(state => ({ ...state, editorTheme: state.editorTheme = theme })),
   clearAllEditors: () => set(state => ({ ...state, htmlCode: '', cssCode: '', jsCode: '' })),
 }))
 

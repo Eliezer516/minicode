@@ -6,12 +6,14 @@ import "ace-builds/src-noconflict/mode-css";
 import "ace-builds/src-noconflict/snippets/css";
 import "ace-builds/src-noconflict/worker-css";
 
-import "ace-builds/src-noconflict/theme-monokai";
+import '../themes/themes'
 import "ace-builds/src-noconflict/ext-language_tools";
 
 const CssEditor = () => {
 
   const { updateCssCode } = useEditorStore()
+  const editorThemeValue = useEditorStore(state => state.editorTheme)
+  
 
   const handleChange = (code) => {
     updateCssCode(code)
@@ -20,7 +22,7 @@ const CssEditor = () => {
     <AceEditor
       placeholder='Css code here...'
       mode='css'
-      theme="monokai"
+      theme={editorThemeValue}
       className="editor"
       width="100%"
       // height="100%"

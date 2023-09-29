@@ -16,7 +16,7 @@ const EditorsContainer = () => {
         <Tab><i className='bx bxl-css3'></i></Tab>
         <Tab><i className='bx bxl-javascript'></i></Tab>
       </TabList>
-      <button className="config-btn" onClick={openModal}>config</button>
+      <button className="config-btn" onClick={openModal}><i className='bx bx-cog'></i></button>
       <TabPanel>
         <HtmlEditor/>
       </TabPanel>

@@ -6,11 +6,13 @@ import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/snippets/javascript";
 import "ace-builds/src-noconflict/worker-javascript";
 
-import "ace-builds/src-noconflict/theme-monokai";
+import '../themes/themes'
 import "ace-builds/src-noconflict/ext-language_tools";
 
 const JsEditor = () => {
   const { updateJsCode } = useEditorStore()
+  const editorThemeValue = useEditorStore(state => state.editorTheme)
+
 
   const handleChange = (code) => {
     updateJsCode(code)
@@ -19,7 +21,7 @@ const JsEditor = () => {
     <AceEditor
       placeholder='Javascript code here...'
       mode='javascript'
-      theme="monokai"
+      theme={editorThemeValue}
       className="editor"
       width="100%"
       // height="100%"
