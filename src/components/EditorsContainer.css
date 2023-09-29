@@ -1,0 +1,57 @@
+.editor {
+  width: 100%;
+  height: 100%;
+}
+
+.react-tabs__tab-panel {
+  height: 100%
+}
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-tabs__tab-list {
+  background: #626763;
+  font-family: sans-serif;
+  font-size: 15px;
+  height: 35px;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  position: relative;
+  list-style: none;
+  padding: 9px 12px;
+  cursor: pointer;
+  color: white;
+}
+
+.react-tabs__tab--selected {
+  background: #332709;
+  border-color: #aaa;
+  color: white;
+  height: 35px;
+}
+
+.react-tabs__tab:focus {
+  outline: none;
+}
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+}
+
+.editor-container {
+  position: relative;
+}
+
+.config-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
