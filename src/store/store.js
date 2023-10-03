@@ -1,4 +1,8 @@
 import { create } from 'zustand'
+import { getConfig } from '../lib/localstorage.js'
+
+const config = getConfig()
+
 
 const useEditorStore = create((set) => ({
   htmlCode: '',
@@ -10,9 +14,9 @@ const useEditorStore = create((set) => ({
   modalOpen: false,
   openModal: () => set(state => ({ ...state, modalOpen: state.modalOpen = true })),
   closeModal: () => set(state => ({ ...state, modalOpen: state.modalOpen = false })),
-  fontSize: 16,
+  fontSize: config['fontSize'] || 16,
   updateFontSize: (size) => set(state => ({ ...state, fontSize: state.fontSize = size})),
-  editorTheme: 'monokai',
+  editorTheme: config['theme'] || 'monokai',
   updateEditorTheme: (theme) => set(state => ({ ...state, editorTheme: state.editorTheme = theme })),
   clearAllEditors: () => set(state => ({ ...state, htmlCode: '', cssCode: '', jsCode: '' })),
 }))

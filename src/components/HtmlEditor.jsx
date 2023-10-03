@@ -10,14 +10,19 @@ import '../themes/themes'
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/ext-emmet";
 
+import { getEditorsValue, updateEditorsValue } from '../lib/localstorage.js'
+
 const HtmlEditor = () => {
   
   const { updateHtmlCode } = useEditorStore()
   const fontSizeValue = useEditorStore(state => state.fontSize)
   const editorThemeValue = useEditorStore(state => state.editorTheme)
 
+  const editorValue = getEditorsValue()
+
   const handleChange = (code) => {
     updateHtmlCode(code)
+    updateEditorsValue('html', code)
   }
   
   return (
@@ -28,6 +33,7 @@ const HtmlEditor = () => {
       className="editor"
       onChange={handleChange}
       width='100%'
+      value={editorValue['html'] || ''}
       // height={Math.round(editorHeight[0]) + '%'}
       height='calc(100% - 35px)'
       setOptions={{

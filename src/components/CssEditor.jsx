@@ -9,14 +9,19 @@ import "ace-builds/src-noconflict/worker-css";
 import '../themes/themes'
 import "ace-builds/src-noconflict/ext-language_tools";
 
+import { getEditorsValue, updateEditorsValue } from '../lib/localstorage.js'
+
+
 const CssEditor = () => {
 
   const { updateCssCode } = useEditorStore()
   const editorThemeValue = useEditorStore(state => state.editorTheme)
-  
 
+  const editorValue = getEditorsValue()
+  
   const handleChange = (code) => {
     updateCssCode(code)
+    updateEditorsValue('css', code)
   }
   return (
     <AceEditor
@@ -25,8 +30,8 @@ const CssEditor = () => {
       theme={editorThemeValue}
       className="editor"
       width="100%"
-      // height="100%"
       height='calc(100% - 35px)'
+      value={editorValue['css'] || ''}
       onChange={handleChange}
       setOptions={{
         enableBasicAutocompletion: true,

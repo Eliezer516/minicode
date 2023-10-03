@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-
 import useEditorStore from './store/store.js'
 
 import Split from 'react-split'
