@@ -33,9 +33,8 @@ const HtmlEditor = () => {
       className="editor"
       onChange={handleChange}
       width='100%'
+      height='100%'
       value={editorValue['html'] || ''}
-      // height={Math.round(editorHeight[0]) + '%'}
-      height='calc(100% - 35px)'
       setOptions={{
         enableBasicAutocompletion: true,
         enableLiveAutocompletion: true,

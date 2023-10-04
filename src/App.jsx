@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import 'picnic/picnic.min.css'
 import useEditorStore from './store/store.js'
 
 import Split from 'react-split'
@@ -12,7 +13,6 @@ import ModalConfig from './components/ModalConfig.jsx'
 function App() {
   return (
     <div className="container">
-      <ModalConfig />
       <Split
           className="split"
           direction="vertical"
@@ -22,6 +22,7 @@ function App() {
             <EditorsContainer/>
             <Iframe/>
       </Split>
+      <ModalConfig />
     </div>
   )
 }

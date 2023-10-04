@@ -8,15 +8,14 @@ import useEditorStore from '../store/store.js'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 const EditorsContainer = () => {
-  const { openModal } = useEditorStore()
   return (
     <Tabs forceRenderTabPanel={true} className="editor-container">
       <TabList>
-        <Tab><i className='bx bxl-html5'></i></Tab>
-        <Tab><i className='bx bxl-css3'></i></Tab>
-        <Tab><i className='bx bxl-javascript'></i></Tab>
+        <Tab><button className="button"><i className='bx bxl-html5'></i></button></Tab>
+        <Tab><button className="button"><i className='bx bxl-css3'></i></button></Tab>
+        <Tab><button className="button"><i className='bx bxl-javascript'></i></button></Tab>
       </TabList>
-      <button className="config-btn" onClick={openModal}><i className='bx bx-cog'></i></button>
+      <label htmlFor="modal_1" className="button config-btn"><i className='bx bx-cog'></i></label>
       <TabPanel>
         <HtmlEditor/>
       </TabPanel>

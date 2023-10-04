@@ -3,3 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.button {
+  margin: 0 0 0 0;
+  display: grid;
+  place-items: center;
+}

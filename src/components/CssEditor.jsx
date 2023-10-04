@@ -30,7 +30,7 @@ const CssEditor = () => {
       theme={editorThemeValue}
       className="editor"
       width="100%"
-      height='calc(100% - 35px)'
+      height='100%'
       value={editorValue['css'] || ''}
       onChange={handleChange}
       setOptions={{
