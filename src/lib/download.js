@@ -1,4 +1,5 @@
 import { getEditorsValue } from './localstorage'
+import prettify from 'html-prettify'
 
 const localStorageValues = getEditorsValue()
 
@@ -19,8 +20,9 @@ const downloadCode = () => {
       </body>
     </html>
   `
+
   const a = document.createElement("a");
-  const archivo = new Blob([template], { type: 'text/html' });
+  const archivo = new Blob([prettify(template)], { type: 'text/html' });
   const url = URL.createObjectURL(archivo);
   a.href = url;
   a.download = 'code.html';
