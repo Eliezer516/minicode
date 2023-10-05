@@ -1,6 +1,10 @@
 import useEditorStore from '../store/store'
+import { getEditorsValue } from '../lib/localstorage.js'
+
 
 const Iframe = () => {
+
+  const editorsValue = getEditorsValue()
   
   const value = useEditorStore(state => ({
     html: state.htmlCode,
@@ -13,15 +17,13 @@ const Iframe = () => {
     <html lang="es">
       <head>
         <style>
-          ${value.css}
+          ${editorsValue['css'] || value.css}
         </style>
       </head>
       <body>
-        <main>
-          ${value.html}
-        </main>
+        ${editorsValue['html'] || value.html}
         <script>
-          ${value.js}
+          ${editorsValue['js'] || value.js}
         </script>
       </body>
     </html>
